@@ -1,1 +1,26 @@
-<p>blog-page works!</p>
+<html>
+    <head>
+        <script src="https://unpkg.com/angular/angular.js">
+
+        </script>
+    </head>
+
+    <body ng-app="myApp">
+        
+        <div ng-controller="ProductController">
+            <p>blog-page works!!</p>
+            <span ng-bind-html="product"></span>
+        </div>
+        <script>
+            console.log('see')
+            var app = angular.module('myApp', []);
+            app.controller('ProductController', function ($scope, $http) {
+                $http.get("http://localhost:8000/products")
+                        .then(function (response) {
+                            console.log(response.data);
+                            $scope.product = response.data;
+                        });
+            });
+        </script>
+    </body>
+</html>
