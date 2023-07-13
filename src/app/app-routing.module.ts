@@ -1,20 +1,40 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-import { AppComponent } from './app.component';
-import { MainHeaderComponent } from './main-header/main-header.component';
-import { LoginComponent } from './login/login.component';
-import { BlogPageComponent } from './blog-page/blog-page.component';
+import { HomeComponent } from './home/home.component';
+import { DetailsComponent } from './details/details.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 const routes: Routes = [
-    { path: 'main', component: AppComponent },
-    { path: 'mainheader', component: MainHeaderComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'blog-page', component: BlogPageComponent },
+    { 
+        path: '', 
+        redirectTo: 'file-upload', 
+        pathMatch: 'full' 
+    },
+    {
+        path: '',
+        component: HomeComponent,
+        title: 'Home page'
+    },
+    {
+        path: 'details/:id',
+        component: DetailsComponent,
+        title: 'Home details'
+    },
+    {
+        path: 'signin',
+        component: SignInComponent,
+        title: 'Sign in'
+    },
+    {
+        path: 'signup',
+        component: SignUpComponent,
+        title: 'Sign up'
+    }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }

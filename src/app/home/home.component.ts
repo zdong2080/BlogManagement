@@ -38,16 +38,16 @@ export class HomeComponent {
         this.blogingService.getAllBlogBriefs().then((blogBriefList: BlogBrief[]) => {
             this.blogBriefList = blogBriefList;
             this.filteredBlogList = blogBriefList;
-          });
+        });
     }
 
     filterResults(text: string) {
         if (!text) {
-          this.filteredBlogList = this.blogBriefList;
+            this.filteredBlogList = this.blogBriefList;
         }
       
         this.filteredBlogList = this.blogBriefList.filter(
-          blogBrief => blogBrief?.city.toLowerCase().includes(text.toLowerCase())
+            blogBrief => blogBrief?.city.toLowerCase().includes(text.toLowerCase())
         );
-      }
+    }
 }

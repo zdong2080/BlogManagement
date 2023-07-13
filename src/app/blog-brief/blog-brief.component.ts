@@ -12,14 +12,18 @@ import { BlogBrief } from '../blogbrief';
     ],
     template: `
   <section class="listing">
-    <img class="listing-photo" [src]="blogBrief.photo" alt="Exterior photo of {{blogBrief.name}}">
+    <!-- <img class="listing-photo" [src]="blogBrief.photo" alt="Exterior photo of {{blogBrief.name}}"> -->
     <h2 class="listing-heading">{{ blogBrief.name }}</h2>
     <p class="listing-location">{{ blogBrief.city}}, {{blogBrief.state }}</p>
     <a [routerLink]="['/details', blogBrief.id]">Learn More</a>
+    <!-- <button class="primary" type="button"
+        (click)="deleteBlog(filter.value)">Search</button> -->
   </section>
   `,
     styleUrls: ['./blog-brief.component.css']
 })
 export class BlogBriefComponent {
     @Input() blogBrief!: BlogBrief;
+
+    
 }
